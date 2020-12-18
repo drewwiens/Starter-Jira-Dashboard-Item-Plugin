@@ -1,0 +1,36 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
+
+    <resource type="i18n" name="i18n" location="starterdashboarditems"/>
+
+    <web-resource key="starterdashboarditems-resources" name="starterdashboarditems Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <dependency>com.atlassian.auiplugin:aui-table-sortable</dependency>
+        <resource type="download" name="styles.css" location="/css/styles.css"/>
+        <resource type="download" name="hellodashboarditem.js" location="/js/hellodashboarditem.js"/>
+        <resource type="download" name="images/" location="/images"/>
+        <context>atl.dashboard</context>
+        <context>starterdashboarditems</context>
+    </web-resource>
+
+    <dashboard-item key="hellodashboarditem" i18n-name-key="com.yourorganization.starterdashboarditems.hellodashboarditem.title" configurable="true">
+        <definition>
+            <title key="com.yourorganization.starterdashboarditems.hellodashboarditem.title"/>
+            <categories>
+                <category>Jira</category>
+            </categories>
+            <author>
+                <name>yourorganization</name>
+            </author>
+            <thumbnail location="/download/resources/${atlassian.plugin.key}:starterdashboarditems-resources/images/pluginLogo.png"/>
+        </definition>
+        <description key="com.yourorganization.starterdashboarditems.hellodashboarditem.description"/>
+        <amd-module>starterdashboarditems/hellodashboarditem</amd-module>
+    </dashboard-item>
+</atlassian-plugin>
